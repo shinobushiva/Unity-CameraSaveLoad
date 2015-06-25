@@ -13,6 +13,14 @@
     "unity",
     "unity3d"
   ],
+   "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main":{},
   "license": "MIT",
   "dependencies": {
     "DataSaveLoad": "shinobushiva/Unity-DataSaveLoad"
