@@ -15,6 +15,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "shinobushiva/Unity-DataSaveLoad": "0.1.0"
+    "Unity-DataSaveLoad": "shinobushiva/Unity-DataSaveLoad"
   }
 }
