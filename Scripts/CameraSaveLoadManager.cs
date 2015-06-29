@@ -6,9 +6,11 @@ using DataSaveLoad;
 namespace CameraSaveLoad {
 	public class CameraSaveLoadManager : MonoBehaviour {
 
+		public string folderName = "CameraSaveLoad";
+
 		public Camera target;
 
-		private DataSaveLoadMaster dataSaveLoad;
+		public DataSaveLoadMaster dataSaveLoad;
 
 		[System.Serializable] 
 		public class SavedCamera
@@ -28,16 +30,16 @@ namespace CameraSaveLoad {
 			sc.rotation = target.transform.rotation;
 			sc.localScale = target.transform.localScale;
 
-			dataSaveLoad.ShowSaveDialog (sc);
+			dataSaveLoad.ShowSaveDialog (sc, folderName);
 		}
 
 		public void ShowLoadUI(){
-			dataSaveLoad.ShowLoadDialog (typeof(SavedCamera));
+			dataSaveLoad.ShowLoadDialog (typeof(SavedCamera), folderName);
 		}
 
 		// Use this for initialization
 		void Awake () {
-			dataSaveLoad = GetComponent<DataSaveLoadMaster> ();
+//			dataSaveLoad = GetComponent<DataSaveLoadMaster> ();
 		}
 
 		void Start () {
