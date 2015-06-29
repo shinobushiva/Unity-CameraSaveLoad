@@ -41,7 +41,7 @@ namespace CameraSaveLoad {
 		}
 
 		void Start () {
-			dataSaveLoad.loadDataUI.dataLoadHandler += DataLoadCallback;
+			dataSaveLoad.dataLoadHandler += DataLoadCallback;
 		}
 		
 		public void DataLoadCallback(object o){
