@@ -326,25 +326,13 @@ Prefab:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11473478, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
-      propertyPath: target
+      propertyPath: cameraSwitcher
       value: 
-      objectReference: {fileID: 1745021312}
+      objectReference: {fileID: 1359714832}
     - target: {fileID: 11473478, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
       propertyPath: dataSaveLoad
       value: 
       objectReference: {fileID: 1922843917}
-    - target: {fileID: 22409322, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22409322, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11473478, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
-      propertyPath: cameraSwitcher
-      value: 
-      objectReference: {fileID: 1359714832}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
   m_IsPrefabParent: 0
