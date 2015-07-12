@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using DataSaveLoad;
+using Shiva.CameraSwitch;
 
 namespace CameraSaveLoad {
 	public class CameraSaveLoadManager : MonoBehaviour {
@@ -25,10 +26,10 @@ namespace CameraSaveLoad {
 
 		public void ShowSaveUI(){
 			SavedCamera sc = new SavedCamera ();
-			sc.cameraName = cameraSwitcher.currentActive.c.name;
-			sc.position = cameraSwitcher.currentActive.c.transform.position;
-			sc.rotation = cameraSwitcher.currentActive.c.transform.rotation;
-			sc.localScale = cameraSwitcher.currentActive.c.transform.localScale;
+			sc.cameraName = cameraSwitcher.CurrentActive.c.name;
+			sc.position = cameraSwitcher.CurrentActive.c.transform.position;
+			sc.rotation = cameraSwitcher.CurrentActive.c.transform.rotation;
+			sc.localScale = cameraSwitcher.CurrentActive.c.transform.localScale;
 
 			dataSaveLoad.ShowSaveDialog (sc, folderName);
 		}
@@ -43,14 +44,17 @@ namespace CameraSaveLoad {
 		}
 
 		void Start () {
-			dataSaveLoad.dataLoadHandler += DataLoadCallback;
+			dataSaveLoad.AddHandler(DataLoadCallback, typeof(SavedCamera));
 		}
 		
 		public void DataLoadCallback(object o){
+
+			print (o);
+
 			SavedCamera sc = o as SavedCamera;
-			cameraSwitcher.currentActive.c.transform.position = sc.position;
-			cameraSwitcher.currentActive.c.transform.rotation = sc.rotation;
-			cameraSwitcher.currentActive.c.transform.localScale = sc.localScale;
+			cameraSwitcher.CurrentActive.c.transform.position = sc.position;
+			cameraSwitcher.CurrentActive.c.transform.rotation = sc.rotation;
+			cameraSwitcher.CurrentActive.c.transform.localScale = sc.localScale;
 		}
 		
 		// Update is called once per frame
