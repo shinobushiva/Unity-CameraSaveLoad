@@ -87,6 +87,52 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &259032453
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 401284, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401284, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401284, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401284, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401284, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401284, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 401284, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 401284, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447608, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+      propertyPath: cameras.Array.data[0]
+      value: 
+      objectReference: {fileID: 1745021315}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 415304a4272574cafa30658b33b78ea0, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &758386732
 Prefab:
   m_ObjectHideFlags: 0
@@ -176,7 +222,7 @@ RectTransform:
   - {fileID: 1263568226}
   - {fileID: 1349473993}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -236,7 +282,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &887542711
+--- !u!1 &887542711 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 125136, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
   m_PrefabInternal: {fileID: 911643191}
@@ -277,7 +323,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400382, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11473478, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
       propertyPath: target
@@ -295,6 +341,10 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11473478, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
+      propertyPath: cameraSwitcher
+      value: 
+      objectReference: {fileID: 1359714832}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15f524f9e9be74ed88d9af0d0a974759, type: 2}
   m_IsPrefabParent: 0
@@ -410,6 +460,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &1185403388
 MonoBehaviour:
@@ -436,7 +487,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!1 &1241493215
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,8 +616,7 @@ MonoBehaviour:
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -619,7 +669,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &1343970623
+--- !u!4 &1343970623 stripped
 Transform:
   m_PrefabParentObject: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_PrefabInternal: {fileID: 758386732}
@@ -703,8 +753,7 @@ MonoBehaviour:
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -739,6 +788,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1349473992}
+--- !u!114 &1359714832 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11447608, guid: 415304a4272574cafa30658b33b78ea0,
+    type: 2}
+  m_PrefabInternal: {fileID: 259032453}
+  m_Script: {fileID: 11500000, guid: f6b8cb200bbfe43a7afa21eb8d037de0, type: 3}
 --- !u!1 &1624471814
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +867,7 @@ GameObject:
   - 124: {fileID: 1745021310}
   - 81: {fileID: 1745021309}
   - 114: {fileID: 1745021314}
+  - 114: {fileID: 1745021315}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -872,6 +928,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1745021313
 Transform:
   m_ObjectHideFlags: 0
@@ -890,7 +947,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1745021308}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f76806479d916a64aa03f8e3eba7912f, type: 3}
   m_Name: 
@@ -900,6 +957,18 @@ MonoBehaviour:
   height: 2
   rotationDamping: 1
   heightDamping: 1
+--- !u!114 &1745021315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1745021308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567f34373b84f4dfab91384af0288aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c: {fileID: 0}
 --- !u!1 &1800765002
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +1042,7 @@ Transform:
   m_Children:
   - {fileID: 2098399426}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1001 &1922843916
 Prefab:
   m_ObjectHideFlags: 0
@@ -1011,7 +1080,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 462016, guid: fe99b5aae7c1b4030bb86486393d9089, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 22411942, guid: fe99b5aae7c1b4030bb86486393d9089, type: 2}
       propertyPath: m_AnchorMax.x
@@ -1024,7 +1093,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fe99b5aae7c1b4030bb86486393d9089, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1922843917
+--- !u!114 &1922843917 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11451926, guid: fe99b5aae7c1b4030bb86486393d9089,
     type: 2}

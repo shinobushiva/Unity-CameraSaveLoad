@@ -22,6 +22,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "CameraSwitcher": "shinobushiva/Unity-CameraSwitcher"
     "DataSaveLoad": "shinobushiva/Unity-DataSaveLoad"
   }
 }

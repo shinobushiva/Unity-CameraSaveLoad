@@ -8,7 +8,7 @@ namespace CameraSaveLoad {
 
 		public string folderName = "CameraSaveLoad";
 
-		public Camera target;
+		public CameraSwitcher cameraSwitcher;
 
 		public DataSaveLoadMaster dataSaveLoad;
 
@@ -25,10 +25,10 @@ namespace CameraSaveLoad {
 
 		public void ShowSaveUI(){
 			SavedCamera sc = new SavedCamera ();
-			sc.cameraName = target.name;
-			sc.position = target.transform.position;
-			sc.rotation = target.transform.rotation;
-			sc.localScale = target.transform.localScale;
+			sc.cameraName = cameraSwitcher.currentActive.c.name;
+			sc.position = cameraSwitcher.currentActive.c.transform.position;
+			sc.rotation = cameraSwitcher.currentActive.c.transform.rotation;
+			sc.localScale = cameraSwitcher.currentActive.c.transform.localScale;
 
 			dataSaveLoad.ShowSaveDialog (sc, folderName);
 		}
@@ -48,9 +48,9 @@ namespace CameraSaveLoad {
 		
 		public void DataLoadCallback(object o){
 			SavedCamera sc = o as SavedCamera;
-			target.transform.position = sc.position;
-			target.transform.rotation = sc.rotation;
-			target.transform.localScale = sc.localScale;
+			cameraSwitcher.currentActive.c.transform.position = sc.position;
+			cameraSwitcher.currentActive.c.transform.rotation = sc.rotation;
+			cameraSwitcher.currentActive.c.transform.localScale = sc.localScale;
 		}
 		
 		// Update is called once per frame
