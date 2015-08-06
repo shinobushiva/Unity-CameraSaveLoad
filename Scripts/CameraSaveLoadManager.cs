@@ -52,9 +52,12 @@ namespace CameraSaveLoad {
 			print (o);
 
 			SavedCamera sc = o as SavedCamera;
-			cameraSwitcher.CurrentActive.c.transform.position = sc.position;
-			cameraSwitcher.CurrentActive.c.transform.rotation = sc.rotation;
-			cameraSwitcher.CurrentActive.c.transform.localScale = sc.localScale;
+
+			if (sc.cameraName == cameraSwitcher.CurrentActive.c.name) {
+				cameraSwitcher.CurrentActive.c.transform.position = sc.position;
+				cameraSwitcher.CurrentActive.c.transform.rotation = sc.rotation;
+				cameraSwitcher.CurrentActive.c.transform.localScale = sc.localScale;
+			}
 		}
 		
 		// Update is called once per frame
