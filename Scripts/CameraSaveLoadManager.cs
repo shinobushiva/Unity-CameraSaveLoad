@@ -1,13 +1,16 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using DataSaveLoad;
 using Shiva.CameraSwitch;
+using System;
+using System.IO;
 
 namespace CameraSaveLoad {
 	public class CameraSaveLoadManager : MonoBehaviour {
 
 		public string folderName = "CameraSaveLoad";
+		public string screenShotFolder = "Screenshots";
 
 		public CameraSwitcher cameraSwitcher;
 
@@ -22,6 +25,38 @@ namespace CameraSaveLoad {
 			public Quaternion rotation;
 			public Vector3 localScale;
 			public string createdDate;
+		}
+
+		// Update is called once per frame
+		void Update () {
+			
+		}
+
+		private IEnumerator _TakeScreenshot(){
+			Canvas[] canvses = FindObjectsOfType<Canvas> ();
+			foreach (Canvas c in canvses) {
+				c.enabled = false;
+			}
+			yield return new WaitForEndOfFrame ();
+
+			string fname = "screenshot_" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-ffff") + ".png";
+			string path = dataSaveLoad.GetFolderPath ( folderName + "/" + screenShotFolder);
+			if (!Directory.Exists (path)) {
+				Directory.CreateDirectory (path);
+			}
+			print (path + "/" + fname);
+			Application.CaptureScreenshot(path+"/"+fname);
+			Helper.OpenInFileBrowser (path);
+
+			foreach (Canvas c in canvses) {
+				c.enabled = true;
+			}
+		}
+
+
+		public void TakeScreenshot(){
+
+			StartCoroutine (_TakeScreenshot ());
 		}
 
 		public void ShowSaveUI(){
@@ -58,11 +93,6 @@ namespace CameraSaveLoad {
 				cameraSwitcher.CurrentActive.c.transform.rotation = sc.rotation;
 				cameraSwitcher.CurrentActive.c.transform.localScale = sc.localScale;
 			}
-		}
-		
-		// Update is called once per frame
-		void Update () {
-		
 		}
 
 	}
