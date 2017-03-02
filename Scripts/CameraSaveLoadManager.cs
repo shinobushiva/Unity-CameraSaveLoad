@@ -62,9 +62,9 @@ namespace CameraSaveLoad {
 		public void ShowSaveUI(){
 			SavedCamera sc = new SavedCamera ();
 			sc.cameraName = cameraSwitcher.CurrentActive.c.name;
-			sc.position = cameraSwitcher.CurrentActive.c.transform.position;
-			sc.rotation = cameraSwitcher.CurrentActive.c.transform.rotation;
-			sc.localScale = cameraSwitcher.CurrentActive.c.transform.localScale;
+			sc.position = cameraSwitcher.CurrentActive.transform.position;
+			sc.rotation = cameraSwitcher.CurrentActive.transform.rotation;
+			sc.localScale = cameraSwitcher.CurrentActive.transform.localScale;
 
 			dataSaveLoad.ShowSaveDialog (sc, folderName);
 		}
@@ -83,15 +83,13 @@ namespace CameraSaveLoad {
 		}
 		
 		public void DataLoadCallback(object o){
-
-			print (o);
-
+			
 			SavedCamera sc = o as SavedCamera;
 
 			if (sc.cameraName == cameraSwitcher.CurrentActive.c.name) {
-				cameraSwitcher.CurrentActive.c.transform.position = sc.position;
-				cameraSwitcher.CurrentActive.c.transform.rotation = sc.rotation;
-				cameraSwitcher.CurrentActive.c.transform.localScale = sc.localScale;
+				cameraSwitcher.CurrentActive.transform.position = sc.position;
+				cameraSwitcher.CurrentActive.transform.rotation = sc.rotation;
+				cameraSwitcher.CurrentActive.transform.localScale = sc.localScale;
 			}
 		}
 
