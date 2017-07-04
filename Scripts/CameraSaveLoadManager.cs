@@ -45,7 +45,38 @@ namespace CameraSaveLoad {
 				Directory.CreateDirectory (path);
 			}
 			print (path + "/" + fname);
-			Application.CaptureScreenshot(path+"/"+fname);
+
+
+			float maxScale = 4096;
+
+			Camera camera = cameraSwitcher.CurrentActive.c;
+
+			var max = Mathf.Max(Screen.width, Screen.height);
+			int width = (int)(maxScale * Screen.width / max );
+			int height = (int)(maxScale * Screen.height / max);
+
+			var rt = RenderTexture.GetTemporary(width, height);
+			var tex = new Texture2D(width, height, TextureFormat.ARGB32, false, false);
+
+			camera.targetTexture = rt;
+			camera.Render();
+
+			RenderTexture.active = rt;
+			tex.ReadPixels( new Rect(0, 0, width, height), 0, 0);
+			tex.Apply();
+
+			camera.targetTexture = null;
+			RenderTexture.active = null;
+
+			System.IO.File.WriteAllBytes(path+"/"+fname, tex.EncodeToPNG());
+
+
+//			float max = Mathf.Max(Screen.width, Screen.height);
+//			int scale = Mathf.RoundToInt( 4096 / max );
+//			scale = 1;
+//			print("Captuer scale : " + scale);
+//			Application.CaptureScreenshot(path+"/"+fname, scale);
+
 			Helper.OpenInFileBrowser (path);
 
 			foreach (Canvas c in canvses) {
