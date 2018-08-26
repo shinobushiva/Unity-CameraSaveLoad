@@ -34,8 +34,8 @@ namespace CameraSaveLoad {
 
 		private IEnumerator _TakeScreenshot(){
 			Canvas[] canvses = FindObjectsOfType<Canvas> ();
-			foreach (Canvas c in canvses) {
-				c.enabled = false;
+			foreach (Canvas cv in canvses) {
+				cv.enabled = false;
 			}
 			yield return new WaitForEndOfFrame ();
 
@@ -49,7 +49,7 @@ namespace CameraSaveLoad {
 
 			float maxScale = 4096;
 
-			Camera camera = cameraSwitcher.CurrentActive.c;
+			Camera c = cameraSwitcher.CurrentActive.c;
 
 			var max = Mathf.Max(Screen.width, Screen.height);
 			int width = (int)(maxScale * Screen.width / max );
@@ -58,29 +58,24 @@ namespace CameraSaveLoad {
 			var rt = RenderTexture.GetTemporary(width, height);
 			var tex = new Texture2D(width, height, TextureFormat.ARGB32, false, false);
 
-			camera.targetTexture = rt;
-			camera.Render();
+			c.targetTexture = rt;
+			c.Render();
 
 			RenderTexture.active = rt;
 			tex.ReadPixels( new Rect(0, 0, width, height), 0, 0);
 			tex.Apply();
 
-			camera.targetTexture = null;
+			c.targetTexture = null;
 			RenderTexture.active = null;
 
 			System.IO.File.WriteAllBytes(path+"/"+fname, tex.EncodeToPNG());
 
 
-//			float max = Mathf.Max(Screen.width, Screen.height);
-//			int scale = Mathf.RoundToInt( 4096 / max );
-//			scale = 1;
-//			print("Captuer scale : " + scale);
-//			Application.CaptureScreenshot(path+"/"+fname, scale);
 
 			Helper.OpenInFileBrowser (path);
 
-			foreach (Canvas c in canvses) {
-				c.enabled = true;
+			foreach (Canvas cv in canvses) {
+				cv.enabled = true;
 			}
 		}
 
