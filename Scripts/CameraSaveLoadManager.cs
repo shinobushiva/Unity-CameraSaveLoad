@@ -55,7 +55,7 @@ namespace CameraSaveLoad {
 			int width = (int)(maxScale * Screen.width / max );
 			int height = (int)(maxScale * Screen.height / max);
 
-			var rt = RenderTexture.GetTemporary(width, height);
+			var rt = RenderTexture.GetTemporary(width, height, 24);
 			var tex = new Texture2D(width, height, TextureFormat.ARGB32, false, false);
 
 			c.targetTexture = rt;
